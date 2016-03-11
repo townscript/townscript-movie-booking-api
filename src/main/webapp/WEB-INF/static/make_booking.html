@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Book a ticket</title>
+</head>
+<body>
+<center><h1><u>Book Ticket</u></h1></center>
+	<form action="http://localhost:8080/api/booking/createbooking" enctype="application/json" method="POST">
+		<center>
+			Enter Customer Id:<br><input type="text" name="customerId"><br><br>
+			Enter Customer Name:<br><input type="text" name="customerName"><br><br>
+			Enter Contact No:<br><input type="text" name="contact"><br><br>
+			Enter Movie Id:<br><input type="text" name="movieId"><br><br>
+			Enter Movie Name:<br><input type="text" name="movieName"><br><br>
+			Enter Hall Id:<br><input type="text" name="hallId"><br><br>
+			Enter Hall Name:<br><input type="text" name="hallName"><br><br>
+			Enter Seat Type:<br>
+				<select name="seatType">
+					<option value="Premium">Premium</option>
+					<option value="Gold">Gold</option>
+					<option value="Silver">Silver</option>
+				</select><br><br>
+			Enter Seat Price:<br><input type="text" name="seatPrice"><br><br>
+			Enter Show Id:<br><input type="text" name="showId"><br><br>
+			Enter Booking Date:<br><input type="text" name="bookingDate"><br><br>
+			Enter Start Time:<br><input type="text" name="startTime"><br><br>
+			Enter End Time:<br><input type="text" name="endTime"><br><br>
+			Total Cost:<br><input type="text" name="totalCost"><br><br>
+			No. Of Seats:<br><input type="text" name="noOfSeat"><br><br>
+			Venue:<br><input type="text" name="venue"><br><br>
+			<button type="submit" value="submit">Add Record</button>
+		</center>
+	</form>
+</body>
+</html>
