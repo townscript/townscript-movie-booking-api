@@ -58,7 +58,7 @@ public class MovieDaoImpl implements MovieDao {
 	}
 
 	@Override
-	public Movie searchMoviebyid(int movieid) {
+	public Movie searchMovieById(int movieid) {
 		// TODO Auto-generated method stub
 		String sql="Select * from movie where MOVIE_ID="+movieid+"";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -70,7 +70,7 @@ public class MovieDaoImpl implements MovieDao {
 	}
 
 	@Override
-	public Movie searchMoviebyname(String name) {
+	public Movie searchMovieByName(String name) {
 		// TODO Auto-generated method stub
 		String sql="Select * from movie where MOVIE_NAME='"+name+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -82,7 +82,7 @@ public class MovieDaoImpl implements MovieDao {
 	}
 
 	@Override
-	public Movie searchMoviebylang(String lang) {
+	public List<Movie> searchMovieByLang(String lang) {
 		// TODO Auto-generated method stub
 		String sql="Select * from movie where LANGUAGE='"+lang+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -90,11 +90,11 @@ public class MovieDaoImpl implements MovieDao {
 		if(langMList==null||langMList.isEmpty()){
 			return null;
 		}
-		return langMList.get(0);
+		return langMList;
 	}
 
 	@Override
-	public Movie searchMoviebygen(String genere) {
+	public List<Movie> searchMovieByGen(String genere) {
 		// TODO Auto-generated method stub
 		String sql="Select * from movie where GENERE='"+genere+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -102,7 +102,7 @@ public class MovieDaoImpl implements MovieDao {
 		if(genMList==null||genMList.isEmpty()){
 			return null;
 		}
-		return genMList.get(0);
+		return genMList;
 	}
 	
 }

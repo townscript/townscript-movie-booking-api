@@ -539,39 +539,39 @@ public class ShowsServiceTest {
 		JdbcTemplate jdbcForCheck=JdbcTemplateFactory.getJdbcTemplate();
 		String hallName=jdbcForCheck.queryForObject(sqlForCheck, String.class);
 		
-		Show show=showsService.loadDetailsByHallName(hallName);
+		List<Show> show=showsService.loadDetailsByHallName(hallName);
 		
-		Assert.assertEquals(showid, show.getShowId());
+		Assert.assertEquals(showid, show.get(0).getShowId());
 		
-		Assert.assertEquals(hallid, show.getHallId());
+		Assert.assertEquals(hallid, show.get(0).getHallId());
 		
-		Assert.assertEquals(hallName, show.getHallName());
+		Assert.assertEquals(hallName, show.get(0).getHallName());
 		
-		Assert.assertEquals(movieid, show.getMovieId());
+		Assert.assertEquals(movieid, show.get(0).getMovieId());
 		
-		Assert.assertEquals("Deadpool", show.getMovieName());
+		Assert.assertEquals("Deadpool", show.get(0).getMovieName());
 		
 		String expectedStartTime="21:30:00";
-		String actualStartTime=sfdTime.format(show.getStartTime());
+		String actualStartTime=sfdTime.format(show.get(0).getStartTime());
 		Assert.assertEquals(expectedStartTime, actualStartTime);
 		
 		String expectedEndTime="23:15:00";
-		String actualEndTime=sfdTime.format(show.getEndTime());
+		String actualEndTime=sfdTime.format(show.get(0).getEndTime());
 		Assert.assertEquals(expectedEndTime, actualEndTime);
 		
 		String expectedFromDate="2016-02-21";
-		String actualFromDate=sfdDate.format(show.getFromDate());
+		String actualFromDate=sfdDate.format(show.get(0).getFromDate());
 		Assert.assertEquals(expectedFromDate, actualFromDate);
 		
 		String expectedToDate="2016-02-28";
-		String actualToDate=sfdDate.format(show.getToDate());
+		String actualToDate=sfdDate.format(show.get(0).getToDate());
 		Assert.assertEquals(expectedToDate, actualToDate);
 		
-		Assert.assertEquals(180.0, show.getPremiumPrice(), 0.0);
+		Assert.assertEquals(180.0, show.get(0).getPremiumPrice(), 0.0);
 		
-		Assert.assertEquals(140.0, show.getGoldPrice(),0.0);
+		Assert.assertEquals(140.0, show.get(0).getGoldPrice(),0.0);
 		
-		Assert.assertEquals(100.00, show.getSilverPrice(), 0.0);
+		Assert.assertEquals(100.00, show.get(0).getSilverPrice(), 0.0);
 	}
 	
 	@Test
@@ -621,39 +621,39 @@ public class ShowsServiceTest {
 		JdbcTemplate jdbcForCheck=JdbcTemplateFactory.getJdbcTemplate();
 		String movieName=jdbcForCheck.queryForObject(sqlForCheck, String.class);
 		
-		Show show=showsService.loadDetailsByMovieName(movieName);
+		List<Show> show=showsService.loadDetailsByMovieName(movieName);
 		
-		Assert.assertEquals(showid, show.getShowId());
+		Assert.assertEquals(showid, show.get(0).getShowId());
 		
-		Assert.assertEquals(hallid, show.getHallId());
+		Assert.assertEquals(hallid, show.get(0).getHallId());
 		
-		Assert.assertEquals("Cinepolis", show.getHallName());
+		Assert.assertEquals("Cinepolis", show.get(0).getHallName());
 		
-		Assert.assertEquals(movieid, show.getMovieId());
+		Assert.assertEquals(movieid, show.get(0).getMovieId());
 		
-		Assert.assertEquals(movieName, show.getMovieName());
+		Assert.assertEquals(movieName, show.get(0).getMovieName());
 		
 		String expectedStartTime="21:30:00";
-		String actualStartTime=sfdTime.format(show.getStartTime());
+		String actualStartTime=sfdTime.format(show.get(0).getStartTime());
 		Assert.assertEquals(expectedStartTime, actualStartTime);
 		
 		String expectedEndTime="23:15:00";
-		String actualEndTime=sfdTime.format(show.getEndTime());
+		String actualEndTime=sfdTime.format(show.get(0).getEndTime());
 		Assert.assertEquals(expectedEndTime, actualEndTime);
 		
 		String expectedFromDate="2016-02-21";
-		String actualFromDate=sfdDate.format(show.getFromDate());
+		String actualFromDate=sfdDate.format(show.get(0).getFromDate());
 		Assert.assertEquals(expectedFromDate, actualFromDate);
 		
 		String expectedToDate="2016-02-28";
-		String actualToDate=sfdDate.format(show.getToDate());
+		String actualToDate=sfdDate.format(show.get(0).getToDate());
 		Assert.assertEquals(expectedToDate, actualToDate);
 		
-		Assert.assertEquals(180.0, show.getPremiumPrice(), 0.0);
+		Assert.assertEquals(180.0, show.get(0).getPremiumPrice(), 0.0);
 		
-		Assert.assertEquals(140.0, show.getGoldPrice(),0.0);
+		Assert.assertEquals(140.0, show.get(0).getGoldPrice(),0.0);
 		
-		Assert.assertEquals(100.00, show.getSilverPrice(), 0.0);
+		Assert.assertEquals(100.00, show.get(0).getSilverPrice(), 0.0);
 	}
 	
 	@Test
@@ -703,39 +703,39 @@ public class ShowsServiceTest {
 		
 		Date startTime=jdbcForCheck.queryForObject(sqlForCheck, Date.class);
 		
-		Show show=showsService.loadDetailsByStartTime(startTime);
+		List<Show> show=showsService.loadDetailsByStartTime(startTime);
 		
-		Assert.assertEquals(showid, show.getShowId());
+		Assert.assertEquals(showid, show.get(0).getShowId());
 		
-		Assert.assertEquals(hallid, show.getHallId());
+		Assert.assertEquals(hallid, show.get(0).getHallId());
 		
-		Assert.assertEquals("Cinepolis", show.getHallName());
+		Assert.assertEquals("Cinepolis", show.get(0).getHallName());
 		
-		Assert.assertEquals(movieid, show.getMovieId());
+		Assert.assertEquals(movieid, show.get(0).getMovieId());
 		
-		Assert.assertEquals("Deadpool", show.getMovieName());
+		Assert.assertEquals("Deadpool", show.get(0).getMovieName());
 		
 		String expectedStartTime=sfdTime.format(startTime);
-		String actualStartTime=sfdTime.format(show.getStartTime());
+		String actualStartTime=sfdTime.format(show.get(0).getStartTime());
 		Assert.assertEquals(expectedStartTime, actualStartTime);
 		
 		String expectedEndTime="23:15:00";
-		String actualEndTime=sfdTime.format(show.getEndTime());
+		String actualEndTime=sfdTime.format(show.get(0).getEndTime());
 		Assert.assertEquals(expectedEndTime, actualEndTime);
 		
 		String expectedFromDate="2016-02-21";
-		String actualFromDate=sfdDate.format(show.getFromDate());
+		String actualFromDate=sfdDate.format(show.get(0).getFromDate());
 		Assert.assertEquals(expectedFromDate, actualFromDate);
 		
 		String expectedToDate="2016-02-28";
-		String actualToDate=sfdDate.format(show.getToDate());
+		String actualToDate=sfdDate.format(show.get(0).getToDate());
 		Assert.assertEquals(expectedToDate, actualToDate);
 		
-		Assert.assertEquals(180.0, show.getPremiumPrice(), 0.0);
+		Assert.assertEquals(180.0, show.get(0).getPremiumPrice(), 0.0);
 		
-		Assert.assertEquals(140.0, show.getGoldPrice(),0.0);
+		Assert.assertEquals(140.0, show.get(0).getGoldPrice(),0.0);
 		
-		Assert.assertEquals(100.00, show.getSilverPrice(), 0.0);
+		Assert.assertEquals(100.00, show.get(0).getSilverPrice(), 0.0);
 	}
 	
 	@Test
@@ -762,7 +762,7 @@ public class ShowsServiceTest {
 		
 		int movieid=movieService.saveMovie(movie);
 		
-		final String sqls="INSERT INTO SHOWS(HALL_ID,HALL_NAME,MOVIE_ID,MOVIE_NAME,START_TIME,END_TIME,FROM_DATE,TO_DATE,PREMIUM_SEAT_PRICE,GOLD_SEAT_PRICE,SILVER_SEAT_PRICE)VALUES("+hallid+",'Cinepolis',"+movieid+",'Deadpool','21:30:00','23:15:00','2016-02-21','2016-02-28',180,140,100)";
+		final String sqls="INSERT INTO SHOWS(HALL_ID,HALL_NAME,MOVIE_ID,MOVIE_NAME,START_TIME,END_TIME,FROM_DATE,TO_DATE,PREMIUM_SEAT_PRICE,GOLD_SEAT_PRICE,SILVER_SEAT_PRICE)VALUES("+hallid+",'Cinepolis',"+movieid+",'Deadpool','21:30:00','23:15:00','2016-03-21','2016-03-28',180,140,100)";
 		
 		KeyHolder keyHolder=new GeneratedKeyHolder();
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -804,11 +804,11 @@ public class ShowsServiceTest {
 		String actualEndTime=sfdTime.format(show.getEndTime());
 		Assert.assertEquals(expectedEndTime, actualEndTime);
 		
-		String expectedFromDate="2016-02-21";
+		String expectedFromDate="2016-03-21";
 		String actualFromDate=sfdDate.format(show.getFromDate());
 		Assert.assertEquals(expectedFromDate, actualFromDate);
 		
-		String expectedToDate="2016-02-28";
+		String expectedToDate="2016-03-28";
 		String actualToDate=sfdDate.format(show.getToDate());
 		Assert.assertEquals(expectedToDate, actualToDate);
 		

@@ -182,13 +182,13 @@ public class MovieServiceTest {
 		JdbcTemplate jdbcForMovieDetailsByLanguage=JdbcTemplateFactory.getJdbcTemplate();
 		String language=jdbcForMovieDetailsByLanguage.queryForObject(sqlforlanguage, String.class);
 		
-		Movie movie=movieService.getMInfobylanguage(language);
-		Assert.assertEquals(movid,movie.getMovieId());
-		Assert.assertEquals("Interstellar", movie.getMovieName());
-		Assert.assertEquals(language, movie.getLanguage());
-		Assert.assertEquals("Science Fiction", movie.getGenere());
-		Assert.assertEquals("UA",movie.getType());
-		Assert.assertEquals(169,movie.getDuration());
+		List<Movie> movie=movieService.getMInfobylanguage(language);
+		Assert.assertEquals(movid,movie.get(0).getMovieId());
+		Assert.assertEquals("Interstellar", movie.get(0).getMovieName());
+		Assert.assertEquals(language, movie.get(0).getLanguage());
+		Assert.assertEquals("Science Fiction", movie.get(0).getGenere());
+		Assert.assertEquals("UA",movie.get(0).getType());
+		Assert.assertEquals(169,movie.get(0).getDuration());
 	}
 	
 	@Test
@@ -215,12 +215,12 @@ public class MovieServiceTest {
 		JdbcTemplate jdbcForMovieDetailsByGenere=JdbcTemplateFactory.getJdbcTemplate();
 		String genere=jdbcForMovieDetailsByGenere.queryForObject(sqlforgenere, String.class);
 		
-		Movie movie=movieService.getMInfobygenere(genere);
-		Assert.assertEquals(movid, movie.getMovieId());
-		Assert.assertEquals("Interstellar", movie.getMovieName());
-		Assert.assertEquals("English", movie.getLanguage());
-		Assert.assertEquals(genere, movie.getGenere());
-		Assert.assertEquals("UA", movie.getType());
-		Assert.assertEquals(169,movie.getDuration());
+		List<Movie> movie=movieService.getMInfobygenere(genere);
+		Assert.assertEquals(movid, movie.get(0).getMovieId());
+		Assert.assertEquals("Interstellar", movie.get(0).getMovieName());
+		Assert.assertEquals("English", movie.get(0).getLanguage());
+		Assert.assertEquals(genere, movie.get(0).getGenere());
+		Assert.assertEquals("UA", movie.get(0).getType());
+		Assert.assertEquals(169,movie.get(0).getDuration());
 	}
 }

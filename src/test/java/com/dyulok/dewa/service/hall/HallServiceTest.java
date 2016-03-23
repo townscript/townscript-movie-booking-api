@@ -154,13 +154,13 @@ public class HallServiceTest {
 		
 		String hallName=jdbcForName.queryForObject(sqlForName, String.class);
 		
-		Hall hall=hallService.loadHallInfoByName(hallName);
-		Assert.assertEquals(hallid, hall.getHallId());
-		Assert.assertEquals(hallName, hall.getHallName());
-		Assert.assertEquals("Kothrud",hall.getVenue());
-		Assert.assertEquals(25, hall.getPremiumSeat());
-		Assert.assertEquals(35, hall.getGoldSeat());
-		Assert.assertEquals(40, hall.getSilverSeat());
+		List<Hall> hall=hallService.loadHallInfoByName(hallName);
+		Assert.assertEquals(hallid, hall.get(0).getHallId());
+		Assert.assertEquals(hallName, hall.get(0).getHallName());
+		Assert.assertEquals("Kothrud",hall.get(0).getVenue());
+		Assert.assertEquals(25, hall.get(0).getPremiumSeat());
+		Assert.assertEquals(35, hall.get(0).getGoldSeat());
+		Assert.assertEquals(40, hall.get(0).getSilverSeat());
 	}
 	
 	@Test
@@ -187,13 +187,13 @@ public class HallServiceTest {
 		
 		String hallVenue=jdbcForVenue.queryForObject(sqlForVenue, String.class);
 		
-		Hall hall=hallService.loadHallInfoByVenue(hallVenue);
-		Assert.assertEquals(hallid, hall.getHallId());
-		Assert.assertEquals("Citypride Kothrud",hall.getHallName());
-		Assert.assertEquals(hallVenue,hall.getVenue());
-		Assert.assertEquals(25, hall.getPremiumSeat());
-		Assert.assertEquals(35,hall.getGoldSeat());
-		Assert.assertEquals(40, hall.getSilverSeat());
+		List<Hall> hall=hallService.loadHallInfoByVenue(hallVenue);
+		Assert.assertEquals(hallid, hall.get(0).getHallId());
+		Assert.assertEquals("Citypride Kothrud",hall.get(0).getHallName());
+		Assert.assertEquals(hallVenue,hall.get(0).getVenue());
+		Assert.assertEquals(25, hall.get(0).getPremiumSeat());
+		Assert.assertEquals(35,hall.get(0).getGoldSeat());
+		Assert.assertEquals(40, hall.get(0).getSilverSeat());
 	}
 	
 	@Test
@@ -244,11 +244,11 @@ public class HallServiceTest {
 		JdbcTemplate jdbcForName=JdbcTemplateFactory.getJdbcTemplate();
 		
 		String hallName=jdbcForName.queryForObject(sqlForName, String.class);
-		Hall hall=hallService.getSeatDetailsByName(hallName);
+		List<Hall> hall=hallService.getSeatDetailsByName(hallName);
 		
-		Assert.assertEquals(25,hall.getPremiumSeat());
-		Assert.assertEquals(35, hall.getGoldSeat());
-		Assert.assertEquals(40,hall.getSilverSeat());
+		Assert.assertEquals(25,hall.get(0).getPremiumSeat());
+		Assert.assertEquals(35, hall.get(0).getGoldSeat());
+		Assert.assertEquals(40,hall.get(0).getSilverSeat());
 	}
 	
 	@Test

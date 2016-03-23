@@ -10,6 +10,7 @@ import com.dyulok.dewa.dao.customer.CustomerDao;
 import com.dyulok.dewa.model.customer.Customer;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 public class CustomerDaoHnateImpl extends HibernateDaoSupport implements CustomerDao {
 	

@@ -520,55 +520,55 @@ public class BookingServiceTest {
 		
 		int cid=jdbcForCheck.queryForInt(queryString);
 		
-		Booking booking=bookingService.loadDetailsByCustomerId(cid);
+		List<Booking> booking=bookingService.loadDetailsByCustomerId(cid);
 		
-		Assert.assertEquals(bookid, booking.getBookingId());
+		Assert.assertEquals(bookid, booking.get(0).getBookingId());
 		
-		Assert.assertEquals(cid, booking.getCustomerId());
+		Assert.assertEquals(cid, booking.get(0).getCustomerId());
 		
-		Assert.assertEquals("Ratnadeep", booking.getCustomerName());
+		Assert.assertEquals("Ratnadeep", booking.get(0).getCustomerName());
 		
-		Assert.assertEquals("8983564785", booking.getContact());
+		Assert.assertEquals("8983564785", booking.get(0).getContact());
 		
-		Assert.assertEquals(movieid, booking.getMovieId());
+		Assert.assertEquals(movieid, booking.get(0).getMovieId());
 		
-		Assert.assertEquals("Deadpool", booking.getMovieName());
+		Assert.assertEquals("Deadpool", booking.get(0).getMovieName());
 		
-		Assert.assertEquals(hallid, booking.getHallId());
+		Assert.assertEquals(hallid, booking.get(0).getHallId());
 		
-		Assert.assertEquals("Cinepolis", booking.getHallName());
+		Assert.assertEquals("Cinepolis", booking.get(0).getHallName());
 		
-		Assert.assertEquals("Premium", booking.getSeatType());
+		Assert.assertEquals("Premium", booking.get(0).getSeatType());
 		
-		Assert.assertEquals(180.0, booking.getPrice(), 0.0);
+		Assert.assertEquals(180.0, booking.get(0).getPrice(), 0.0);
 		
-		Assert.assertEquals(showid, booking.getShowId());
+		Assert.assertEquals(showid, booking.get(0).getShowId());
 		
 		cal.set(Calendar.DAY_OF_MONTH, 21);
 		Date bDate=cal.getTime();
 		String expectedDate=sdfDate.format(bDate);
-		String actualDate=sdfDate.format(booking.getBookingDate());
+		String actualDate=sdfDate.format(booking.get(0).getBookingDate());
 		Assert.assertEquals(expectedDate, actualDate);
 		
 		cal.set(Calendar.HOUR_OF_DAY, 21);
 		cal.set(Calendar.MINUTE, 30);
 		Date sTime=cal.getTime();
 		String expectedSTime=sdfTime.format(sTime);
-		String actualSTime=sdfTime.format(booking.getStartTime());
+		String actualSTime=sdfTime.format(booking.get(0).getStartTime());
 		Assert.assertEquals(expectedSTime, actualSTime);
 		
 		cal.set(Calendar.HOUR_OF_DAY, 23);
 		cal.set(Calendar.MINUTE, 15);
 		Date eTime=cal.getTime();
 		String expectedETime=sdfTime.format(eTime);
-		String actualETime=sdfTime.format(booking.getEndTime());
+		String actualETime=sdfTime.format(booking.get(0).getEndTime());
 		Assert.assertEquals(expectedETime, actualETime);
 		
-		Assert.assertEquals(900.0, booking.getTotalCost(), 0.0);
+		Assert.assertEquals(900.0, booking.get(0).getTotalCost(), 0.0);
 		
-		Assert.assertEquals(5, booking.getNoOfSeat());
+		Assert.assertEquals(5, booking.get(0).getNoOfSeat());
 		
-		Assert.assertEquals("Pune",booking.getVenue());
+		Assert.assertEquals("Pune",booking.get(0).getVenue());
 	}
 	
 	@Test
@@ -658,54 +658,54 @@ public class BookingServiceTest {
 		
 		Date bDate=jdbcTemplate.queryForObject(queryString, Date.class);
 		
-		Booking booking=bookingService.loadDetailsByDate(bDate);
+		List<Booking> booking=bookingService.loadDetailsByDate(bDate);
 		
-		Assert.assertEquals(bookid, booking.getBookingId());
+		Assert.assertEquals(bookid, booking.get(0).getBookingId());
 		
-		Assert.assertEquals(custid, booking.getCustomerId());
+		Assert.assertEquals(custid, booking.get(0).getCustomerId());
 		
-		Assert.assertEquals("Ratnadeep", booking.getCustomerName());
+		Assert.assertEquals("Ratnadeep", booking.get(0).getCustomerName());
 		
-		Assert.assertEquals("8983564785", booking.getContact());
+		Assert.assertEquals("8983564785", booking.get(0).getContact());
 		
-		Assert.assertEquals(movieid, booking.getMovieId());
+		Assert.assertEquals(movieid, booking.get(0).getMovieId());
 		
-		Assert.assertEquals("Deadpool", booking.getMovieName());
+		Assert.assertEquals("Deadpool", booking.get(0).getMovieName());
 		
-		Assert.assertEquals(hallid, booking.getHallId());
+		Assert.assertEquals(hallid, booking.get(0).getHallId());
 		
-		Assert.assertEquals("Cinepolis", booking.getHallName());
+		Assert.assertEquals("Cinepolis", booking.get(0).getHallName());
 		
-		Assert.assertEquals("Premium", booking.getSeatType());
+		Assert.assertEquals("Premium", booking.get(0).getSeatType());
 		
-		Assert.assertEquals(180.0, booking.getPrice(), 0.0);
+		Assert.assertEquals(180.0, booking.get(0).getPrice(), 0.0);
 		
-		Assert.assertEquals(showid, booking.getShowId());
+		Assert.assertEquals(showid, booking.get(0).getShowId());
 		
 		/*cal.set(Calendar.DAY_OF_MONTH, 21);
 		Date bDate=cal.getTime();*/
 		String expectedDate=sdfDate.format(bDate);
-		String actualDate=sdfDate.format(booking.getBookingDate());
+		String actualDate=sdfDate.format(booking.get(0).getBookingDate());
 		Assert.assertEquals(expectedDate, actualDate);
 		
 		cal.set(Calendar.HOUR_OF_DAY, 21);
 		cal.set(Calendar.MINUTE, 30);
 		Date sTime=cal.getTime();
 		String expectedSTime=sdfTime.format(sTime);
-		String actualSTime=sdfTime.format(booking.getStartTime());
+		String actualSTime=sdfTime.format(booking.get(0).getStartTime());
 		Assert.assertEquals(expectedSTime, actualSTime);
 		
 		cal.set(Calendar.HOUR_OF_DAY, 23);
 		cal.set(Calendar.MINUTE, 15);
 		Date eTime=cal.getTime();
 		String expectedETime=sdfTime.format(eTime);
-		String actualETime=sdfTime.format(booking.getEndTime());
+		String actualETime=sdfTime.format(booking.get(0).getEndTime());
 		Assert.assertEquals(expectedETime, actualETime);
 		
-		Assert.assertEquals(900.0, booking.getTotalCost(), 0.0);
+		Assert.assertEquals(900.0, booking.get(0).getTotalCost(), 0.0);
 		
-		Assert.assertEquals(5, booking.getNoOfSeat());
+		Assert.assertEquals(5, booking.get(0).getNoOfSeat());
 		
-		Assert.assertEquals("Pune",booking.getVenue());
+		Assert.assertEquals("Pune",booking.get(0).getVenue());
 	}
 }

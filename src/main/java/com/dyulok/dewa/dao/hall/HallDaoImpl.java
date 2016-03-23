@@ -71,7 +71,7 @@ public class HallDaoImpl implements HallDao {
 	}
 
 	@Override
-	public Hall loadHallbyName(String hallName) {
+	public List<Hall> loadHallbyName(String hallName) {
 		// TODO Auto-generated method stub
 		String sql="SELECT * FROM HALL WHERE HALL_NAME='"+hallName+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -79,11 +79,11 @@ public class HallDaoImpl implements HallDao {
 		if(nameList==null||nameList.isEmpty()){
 			return null;
 		}
-		return nameList.get(0);
+		return nameList;
 	}
 
 	@Override
-	public Hall loadHallbyVenue(String hallVenue) {
+	public List<Hall> loadHallbyVenue(String hallVenue) {
 		// TODO Auto-generated method stub
 		String sql="SELECT * FROM HALL WHERE VENUE='"+hallVenue+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -91,7 +91,7 @@ public class HallDaoImpl implements HallDao {
 		if(venueList==null||venueList.isEmpty()){
 			return null;
 		}
-		return venueList.get(0);
+		return venueList;
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class HallDaoImpl implements HallDao {
 	}
 
 	@Override
-	public Hall getSeatDetailsByName(String hallName) {
+	public List<Hall> getSeatDetailsByName(String hallName) {
 		// TODO Auto-generated method stub
 		String sql="SELECT PREMIUM_SEAT,GOLD_SEAT,SILVER_SEAT FROM HALL WHERE HALL_NAME='"+hallName+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -115,6 +115,6 @@ public class HallDaoImpl implements HallDao {
 		if(seatList==null||seatList.isEmpty()){
 			return null;
 		}
-		return seatList.get(0);
+		return seatList;
 	}
 }

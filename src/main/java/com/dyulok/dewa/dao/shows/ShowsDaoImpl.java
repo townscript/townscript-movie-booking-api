@@ -100,7 +100,7 @@ public class ShowsDaoImpl implements ShowsDao {
 	}
 
 	@Override
-	public Show searchShowByHallName(String hallName) {
+	public List<Show> searchShowByHallName(String hallName) {
 		// TODO Auto-generated method stub
 		final String sql="SELECT * FROM SHOWS WHERE HALL_NAME LIKE '"+hallName+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -108,11 +108,11 @@ public class ShowsDaoImpl implements ShowsDao {
 		if(listShowByHall==null){
 			return null;
 		}
-		return listShowByHall.get(0);
+		return listShowByHall;
 	}
 
 	@Override
-	public Show searchShowByMovieName(String movieName) {
+	public List<Show> searchShowByMovieName(String movieName) {
 		// TODO Auto-generated method stub
 		final String sql="SELECT * FROM SHOWS WHERE MOVIE_NAME LIKE '"+movieName+"'";
 		JdbcTemplate jdbcTemplate=JdbcTemplateFactory.getJdbcTemplate();
@@ -120,11 +120,11 @@ public class ShowsDaoImpl implements ShowsDao {
 		if(listShowByMovieName==null){
 			return null;
 		}
-		return listShowByMovieName.get(0);
+		return listShowByMovieName;
 	}
 
 	@Override
-	public Show searchShowByStartTime(Date startTime) {
+	public List<Show> searchShowByStartTime(Date startTime) {
 		// TODO Auto-generated method stub
 		final String sql="SELECT * FROM ";
 		return null;

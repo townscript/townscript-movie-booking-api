@@ -41,25 +41,25 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public Movie getMInfobyid(int movid) {
 		// TODO Auto-generated method stub
-		return movieDao.searchMoviebyid(movid);
+		return movieDao.searchMovieById(movid);
 	}
 
 	@Override
 	public Movie getMInfobyname(String name) {
 		// TODO Auto-generated method stub
-		return movieDao.searchMoviebyname(name);
+		return movieDao.searchMovieByName(name);
 	}
 
 	@Override
 	public List<Movie> getMInfobygenere(String genere) {
 		// TODO Auto-generated method stub
-		return movieDao.searchMoviebygen(genere);
+		return movieDao.searchMovieByGen(genere);
 	}
 
 	@Override
 	public List<Movie> getMInfobylanguage(String lang) {
 		// TODO Auto-generated method stub
-		return movieDao.searchMoviebylang(lang);
+		return movieDao.searchMovieByLang(lang);
 	}
 
 	@Override

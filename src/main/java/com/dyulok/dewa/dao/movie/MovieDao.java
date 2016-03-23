@@ -9,8 +9,8 @@ public interface MovieDao {
 	int addMovie(Movie movie);
 	void deleteMovie(int movieid);
 	void updateMovie(Movie movie);
-	Movie searchMoviebyid(int movieid);
-	Movie searchMoviebyname(String name);
-	List<Movie> searchMoviebylang(String lang);
-	List<Movie> searchMoviebygen(String genere);
+	Movie searchMovieById(int movieid);
+	Movie searchMovieByName(String name);
+	List<Movie> searchMovieByLang(String lang);
+	List<Movie> searchMovieByGen(String genere);
 }

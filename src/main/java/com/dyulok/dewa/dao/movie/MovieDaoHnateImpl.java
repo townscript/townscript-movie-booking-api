@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.stereotype.Service;
 
 import com.dyulok.dewa.model.movie.Movie;
 
@@ -33,7 +34,7 @@ public class MovieDaoHnateImpl extends HibernateDaoSupport implements MovieDao {
 	}
 
 	@Override
-	public Movie searchMoviebyid(int movieid) {
+	public Movie searchMovieById(int movieid) {
 		// TODO Auto-generated method stub
 		String queryString="FROM "+Movie.class.getName()+" WHERE movieId = :movieid";
 		
@@ -46,7 +47,7 @@ public class MovieDaoHnateImpl extends HibernateDaoSupport implements MovieDao {
 	}
 
 	@Override
-	public Movie searchMoviebyname(String name) {
+	public Movie searchMovieByName(String name) {
 		// TODO Auto-generated method stub
 		String queryString="FROM "+Movie.class.getName()+" WHERE movieName LIKE :name";
 		
@@ -59,7 +60,7 @@ public class MovieDaoHnateImpl extends HibernateDaoSupport implements MovieDao {
 	}
 
 	@Override
-	public List<Movie> searchMoviebylang(String lang) {
+	public List<Movie> searchMovieByLang(String lang) {
 		// TODO Auto-generated method stub
 		String queryString="FROM "+Movie.class.getName()+" WHERE language LIKE :lang";
 		
@@ -72,7 +73,7 @@ public class MovieDaoHnateImpl extends HibernateDaoSupport implements MovieDao {
 	}
 
 	@Override
-	public List<Movie> searchMoviebygen(String genere) {
+	public List<Movie> searchMovieByGen(String genere) {
 		// TODO Auto-generated method stub
 		String queryString="FROM "+Movie.class.getName()+" WHERE genere LIKE :genere";
 		

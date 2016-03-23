@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dyulok.dewa.model.hall.Hall;
 //import com.dyulok.dewa.model.movie.Movie;
 
-@Transactional
 public class HallDaoHnateImpl extends HibernateDaoSupport implements HallDao {
 
 	@Override
@@ -77,7 +76,7 @@ public class HallDaoHnateImpl extends HibernateDaoSupport implements HallDao {
 	@Override
 	public Hall getSeatDetailsById(int hallId) {
 		// TODO Auto-generated method stub
-		String queryString="SELECT premiumSeat,goldSeat,silverSeat FROM "+Hall.class.getName()+" WHERE hallId = :hallId";
+		String queryString="FROM "+Hall.class.getName()+" WHERE hallId = :hallId";
 		
 		Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Query query=session.createQuery(queryString);
@@ -90,7 +89,7 @@ public class HallDaoHnateImpl extends HibernateDaoSupport implements HallDao {
 	@Override
 	public List<Hall> getSeatDetailsByName(String hallName) {
 		// TODO Auto-generated method stub
-		String queryString="SELECT premiumSeat,goldSeat,silverSeat FROM "+Hall.class.getName()+" WHERE hallName LIKE :hallName";
+		String queryString="FROM "+Hall.class.getName()+" WHERE hallName LIKE :hallName";
 		
 		Session session=getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Query query=session.createQuery(queryString);

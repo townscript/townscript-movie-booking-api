@@ -1026,35 +1026,35 @@ public class AvailabilityServiceTest {
 			System.out.println("before date :"+sshowDate);
 			Date ashowDate=df.parse(sshowDate);
 			System.out.println("Date :"+ashowDate);
-			Availability availability=availabilityService.loadDetailsByDate(ashowDate);
+			List<Availability> availability=availabilityService.loadDetailsByDate(ashowDate);
 			
-			Assert.assertEquals(availid, availability.getAvailabilityId());
+			Assert.assertEquals(availid, availability.get(0).getAvailabilityId());
 			
-			Assert.assertEquals(showid, availability.getShowId());
+			Assert.assertEquals(showid, availability.get(0).getShowId());
 			
-			Assert.assertEquals(movieid, availability.getMovieId());
+			Assert.assertEquals(movieid, availability.get(0).getMovieId());
 			
-			Assert.assertEquals(hallid, availability.getHallId());
+			Assert.assertEquals(hallid, availability.get(0).getHallId());
 			
-			Assert.assertEquals("Cinepolis", availability.getHallName());
+			Assert.assertEquals("Cinepolis", availability.get(0).getHallName());
 			
-			Assert.assertEquals("Pune", availability.getVenue());
+			Assert.assertEquals("Pune", availability.get(0).getVenue());
 			
-			Assert.assertEquals(20, availability.getPremiumSeat());
+			Assert.assertEquals(20, availability.get(0).getPremiumSeat());
 			
-			Assert.assertEquals(30, availability.getGoldSeat());
+			Assert.assertEquals(30, availability.get(0).getGoldSeat());
 			
-			Assert.assertEquals(40, availability.getSilverSeat());
+			Assert.assertEquals(40, availability.get(0).getSilverSeat());
 			
 			String expectedDate=sdfDate.format(showDate);
-			String actualDate=sdfDate.format(availability.getShowDate());
+			String actualDate=sdfDate.format(availability.get(0).getShowDate());
 			Assert.assertEquals(expectedDate, actualDate);
 			
 			cal.set(Calendar.HOUR_OF_DAY, 21);
 			cal.set(Calendar.MINUTE, 30);
 			Date etime=cal.getTime();
 			String expectedTime=sdfTime.format(etime);
-			String actualTime=sdfTime.format(availability.getStartTime());
+			String actualTime=sdfTime.format(availability.get(0).getStartTime());
 			Assert.assertEquals(expectedTime, actualTime);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
